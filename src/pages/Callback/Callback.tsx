@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { useAuthContext } from "../../context/AuthContext";
+import { AUTH_ENDPOINT } from "../../utils/constants";
 
 const Callback = () => {
     const navigate = useNavigate();
@@ -27,7 +28,7 @@ const Callback = () => {
             }
 
             try {
-                const response = await axios.post("http://localhost:8080/auth/spotify", { code });
+                const response = await axios.post(AUTH_ENDPOINT, { code });
                 const accessToken = response.data.access_token;
                 const refreshToken = response.data.refresh_token;
 
