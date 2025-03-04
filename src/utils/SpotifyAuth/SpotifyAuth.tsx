@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { useAuthContext } from "../../context/AuthContext";
-import { AUTH_ENDPOINT } from "../../utils/constants";
+import { AUTH_ENDPOINT } from "../constants";
 
 const Callback = () => {
     const navigate = useNavigate();

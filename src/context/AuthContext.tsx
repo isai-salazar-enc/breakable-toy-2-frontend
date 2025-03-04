@@ -1,10 +1,5 @@
 import { createContext, useContext } from "react";
-
-interface AuthContextType{
-    accessToken: string | undefined;
-    refreshToken: string | undefined;
-    saveTokens: (accessToken: string | undefined, refreshToken: string | undefined) => void;
-}
+import { AuthContextType } from "../types";
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 

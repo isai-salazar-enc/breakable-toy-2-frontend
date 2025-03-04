@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from "react-router";
 import Home from './pages/Home/Home';
-import Callback from './pages/Callback/Callback';
+import Callback from './utils/SpotifyAuth/SpotifyAuth';
 import Dashboard from './pages/Dashboard/Dashboard';
 import { useState } from 'react';
 import { AuthContext } from './context/AuthContext';
