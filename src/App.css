@@ -1,8 +1,25 @@
 #root {
-  max-width: 1280px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0  1rem;
   text-align: center;
+}
+
+.MuiBox{
+  padding: 0%;
+  margin: 0;
+}
+
+.MuiBox-root.cards-container-wrapper {
+  border: 1px solid black;
+  padding-bottom: 28px;
+}
+
+.MuiBox-root h2{
+  margin: 0;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  background-color: green;
 }
 
 .MuiCard-root {
@@ -11,12 +28,22 @@
   /* width: 80px; */
 }
 
+.MuiCard-root *{
+  margin: 0;
+}
+
 .MuiCardMedia-img {
-  width: 151px;
-  height: 151px;
+  width: 121px;
+  height: 121px;
 }
 
 .artist-card-content{
+  width: 200px;
+}
+
+.artist-cards-container {
   display: flex;
-  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-evenly;
 }

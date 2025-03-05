@@ -3,6 +3,7 @@ import axios from "axios";
 import { ARTISTS_ENDPOINT } from "../utils/constants";
 import ArtistCard from "./ArtistCard";
 import { TopArtistsInfo } from "../types";
+import { Box } from "@mui/material";
 
 
 
@@ -39,10 +40,14 @@ const TopArtists : React.FC = () => {
 
     return (
         <>
-            <h1>Hola</h1>
-            {artists && artists.map((artist, index) => (
-                <ArtistCard key={index} content={artist} />
-            ))}
+            <Box className="cards-container-wrapper">
+                <h2>MyTopArtists</h2>
+                <Box className="artist-cards-container">
+                    {artists && artists.map((artist, index) => (
+                        <ArtistCard key={index} content={artist} />
+                    ))}
+                </Box>
+            </Box>
         </> 
     )
 
