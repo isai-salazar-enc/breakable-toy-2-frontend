@@ -1,42 +1,49 @@
 #root {
-  max-width: 1280px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0  1rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.MuiBox{
+  padding: 0%;
+  margin: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.MuiBox-root.cards-container-wrapper {
+  border: 1px solid black;
+  padding-bottom: 28px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.MuiBox-root h2{
+  margin: 0;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  background-color: green;
 }
 
-.card {
-  padding: 2em;
+.MuiCard-root {
+  display: flex;
+  justify-content: space-between;
+  /* width: 80px; */
 }
 
-.read-the-docs {
-  color: #888;
+.MuiCard-root *{
+  margin: 0;
+}
+
+.MuiCardMedia-img {
+  width: 121px;
+  height: 121px;
+}
+
+.artist-card-content{
+  width: 200px;
+}
+
+.artist-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-evenly;
 }
