@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { TOP_ARTISTS_ENDPOINT } from "../utils/constants";
-import ArtistCard from "./ArtistCard";
+import ArtistCard from "./ContentCard";
 import { Artist } from "../types";
 import { Box, CircularProgress } from "@mui/material";
 

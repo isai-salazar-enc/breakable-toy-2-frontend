@@ -1,8 +1,9 @@
 #root {
   max-width: 1380px;
+  min-width: 70%;
   margin: 0 auto;
-  padding: 0  1rem;
-  text-align: center;
+  padding: 1rem;
+  text-align: left;
 }
 
 .MuiBox{
@@ -46,4 +47,35 @@
   flex-wrap: wrap;
   gap: 12px;
   justify-content: space-evenly;
+}
+
+.artist-img {
+  /* border-radius: 12px; */
+  width: 120px;
+  margin-right: 8px;
+}
+
+h1.artist-name {
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.bold-table-header {
+  font-weight: bold !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.album-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: start;
+}
+
+.btn-back {
+  margin-bottom: 12px;
+  background-color: gray;
 }

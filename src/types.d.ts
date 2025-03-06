@@ -5,6 +5,7 @@ export interface AuthContextType{
 }
 
 export interface Artist{
+    type : "artist",
     name : string,
     images : Image[],
     genres : string[],
@@ -12,11 +13,19 @@ export interface Artist{
 }
 
 export interface Album {
+    type : "album",
     name : string,
     images : Image[],
+    release_date : string,
 }
 
 export interface Image {
     url : string,
     width : number,
+}
+
+export interface Track {
+    album : Album,
+    name : string,
+    duration_ms : number,
 }
