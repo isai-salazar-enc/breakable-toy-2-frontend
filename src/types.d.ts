@@ -4,17 +4,11 @@ export interface AuthContextType{
     saveTokens: (accessToken: string | undefined, refreshToken: string | undefined) => void;
 }
 
-export interface TopArtistsInfo {
+export interface Artist{
     name : string,
+    images : Image[],
     genres : string[],
-    images : Image[],
-};
-
-export interface SingleArtistInfo {
-    name : string,
-    images : Image[],
-    followers : number,
-
+    followers : { total : number},
 }
 
 export interface Album {

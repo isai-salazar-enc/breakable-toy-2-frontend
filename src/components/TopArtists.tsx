@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { TOP_ARTISTS_ENDPOINT } from "../utils/constants";
 import ArtistCard from "./ArtistCard";
-import { TopArtistsInfo } from "../types";
+import { Artist } from "../types";
 import { Box, CircularProgress } from "@mui/material";
 
 
 
 const TopArtists : React.FC = () => {
-    const [artists, setArtists] = useState<TopArtistsInfo[] | null>(null);
+    const [artists, setArtists] = useState<Artist[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     // Get access token when redirected to this page

@@ -1,8 +1,8 @@
 import { Box, Card, CardContent, CardMedia } from "@mui/material";
-import { TopArtistsInfo } from "../types";
+import { Artist } from "../types";
 
 interface ArtistCardProps{
-    content : TopArtistsInfo,
+    content : Artist,
 }
 
 
