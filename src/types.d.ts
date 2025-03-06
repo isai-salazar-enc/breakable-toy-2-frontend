@@ -7,5 +7,22 @@ export interface AuthContextType{
 export interface TopArtistsInfo {
     name : string,
     genres : string[],
-    images : string[Object],
+    images : Image[],
 };
+
+export interface SingleArtistInfo {
+    name : string,
+    images : Image[],
+    followers : number,
+
+}
+
+export interface Album {
+    name : string,
+    images : Image[],
+}
+
+export interface Image {
+    url : string,
+    width : number,
+}

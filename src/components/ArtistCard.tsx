@@ -12,7 +12,7 @@ const ArtistCard : React.FC<ArtistCardProps> = ({ content }) => {
         <Card>
             <CardMedia
                 component="img"
-                sx={{ width: 151 }}
+                sx={{ width: 100 }}
                 src={content.images[0].url}
                 alt="Artist photo"
             />
