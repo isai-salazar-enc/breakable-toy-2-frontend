@@ -32,7 +32,7 @@ const PopularSongsTable : React.FC<PopularSongsTableProps> = ({ tracks }) => {
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                         <TableCell component="th" scope="row" className="text-left">
-                            {index}
+                            {index + 1}
                         </TableCell>
                         <TableCell className="text-left">{track.name}</TableCell>
                         <TableCell className="text-left">{formatDuration(track.duration_ms)}</TableCell>
