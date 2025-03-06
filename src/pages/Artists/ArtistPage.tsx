@@ -6,7 +6,7 @@ import { SINGLE_ARTISTS_ENDPOINT } from "../../utils/constants";
 import { Album, Artist, Track } from "../../types";
 import { Button, CircularProgress} from "@mui/material";
 
-import ArtistBox from "../../components/ArtisBox";
+import ArtistBox from "../../components/ArtistBox";
 import PopularSongsTable from "../../components/PopularSongsTable";
 import DiscographyBox from "../../components/DiscographyBox";
 
