@@ -6,6 +6,7 @@ export interface AuthContextType{
 
 export interface Artist{
     type : "artist",
+    id: string,
     name : string,
     images : Image[],
     genres : string[],

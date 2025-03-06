@@ -29,6 +29,7 @@ const TopArtists : React.FC = () => {
                 
                 setArtists(response.data.items);
                 setIsLoading(false);
+                console.log(response.data.items);
 
             } catch (error) {
                 console.error("Error getting fetching TopArtists: ", error);
@@ -48,8 +49,10 @@ const TopArtists : React.FC = () => {
                 <Box className="cards-container-wrapper">
                     <h2>MyTopArtists</h2>
                     <Box className="artist-cards-container">
-                        {artists && artists.map((artist, index) => (
-                            <ArtistCard key={index} content={artist} />
+                        {artists && artists.map((artist) => (
+                            <a key={artist.id} href={"/artist/" + artist.id}>
+                                <ArtistCard content={artist} />
+                            </a>
                         ))}
                     </Box>
                 </Box>
