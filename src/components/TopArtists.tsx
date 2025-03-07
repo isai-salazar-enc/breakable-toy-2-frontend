@@ -5,13 +5,15 @@ import ArtistCard from "./ContentCard";
 import { Artist } from "../types";
 import { Box, CircularProgress } from "@mui/material";
 import { useAuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router";
 
 
 
 const TopArtists : React.FC = () => {
     const [artists, setArtists] = useState<Artist[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const { accessToken, refreshToken } = useAuthContext();
+    const { accessToken, refreshToken, saveTokens } = useAuthContext();
+    const navigate = useNavigate();
 
     // Get access token when redirected to this page
     useEffect( () => {
@@ -27,17 +29,24 @@ const TopArtists : React.FC = () => {
                 });
                 
                 setArtists(response.data.items);
+                if(response.data.new_access_token && response.data.new_refresh_token){
+                    saveTokens(response.data.new_access_token, response.data.new_refresh_token);
+                }
                 setIsLoading(false);
 
             } catch (error) {
-                console.error("Error getting fetching TopArtists: ", error);
+                if (axios.isAxiosError(error) && error.response?.data.status === 401){
+                    saveTokens(undefined, undefined);
+                    window.localStorage.clear();
+                    navigate("/");
+                }
             }
 
         }
 
         // Execute function
         getTopArtists();
-    }, []);
+    }, [navigate]);
 
     return (
         <>

@@ -11,7 +11,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (accessToken !== null && refreshToken !== null) {
+        if (accessToken !== undefined && refreshToken !== undefined) {
           navigate('/dashboard');
         }
     }, [accessToken, navigate]);

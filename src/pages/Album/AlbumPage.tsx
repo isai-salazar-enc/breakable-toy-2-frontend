@@ -15,10 +15,14 @@ const AlbumPage : React.FC = () => {
     const [tracks, setTracks] = useState<Track[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const navigate = useNavigate();
+    const { accessToken, refreshToken } = useAuthContext();
+
+    useEffect( () => {
+        getArtistInfo();
+    }, []);
 
     // Get access token when redirected to this page
     const getArtistInfo = async () =>{
-        const { accessToken, refreshToken } = useAuthContext();
         const endPoint : string = SINGLE_ALBUM_ENDPOINT + id;
 
         try {
@@ -31,7 +35,6 @@ const AlbumPage : React.FC = () => {
             
             setAlbum(response.data);
             setTracks(response.data.tracks.items);
-            console.log(tracks);
             setIsLoading(false);
 
         } catch (error) {
@@ -40,13 +43,10 @@ const AlbumPage : React.FC = () => {
 
     }
 
-    useEffect( () => {
-        getArtistInfo();
-    }, []);
-
     return(
         <>
             <Button variant="contained" className="btn-back" sx={{marginBottom:"12px"}} onClick={() => { navigate(-1) }}>GO BACK</Button>
+            <br />
             { isLoading && <CircularProgress /> }
             { album &&
                 <Box display={"flex"} gap={"18px"} alignItems={"center"}>
