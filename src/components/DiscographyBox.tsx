@@ -12,7 +12,9 @@ const DiscographyBox : React.FC<DiscographyBoxProps> = ({ albums }) =>{
             <h2>Discography</h2><Box sx={{ marginBottom: "14px" }}>
                 <Box className="album-cards-container">
                     {albums.map((album, index) => (
-                        <ContentCard key={index} content={album} />
+                        <a href={"/album/" + album.id} key={index}>
+                            <ContentCard content={album} />
+                        </a>
                     ))}
                 </Box>
             </Box>

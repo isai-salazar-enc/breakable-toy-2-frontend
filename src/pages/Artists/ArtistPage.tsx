@@ -56,7 +56,7 @@ const SingleArtist : React.FC = () => {
             { isLoading && <CircularProgress /> }
             {/* -------- Artist, popular songs and albums -------- */}
             { artist &&  <ArtistBox artist={artist}/> }
-            { tracks && <PopularSongsTable tracks={tracks} /> }
+            { tracks && <PopularSongsTable tracks={tracks} tableTitle="Popular songs"/> }
             { albums && <DiscographyBox albums={albums} /> }
         </>
     )

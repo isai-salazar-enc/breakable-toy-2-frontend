@@ -2,7 +2,8 @@ import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from
 import { Track } from "../types";
 
 interface PopularSongsTableProps {
-    tracks : Track[]
+    tracks : Track[],
+    tableTitle: string,
 }
 
 // Miliseconds to minutes:seconds
@@ -12,10 +13,10 @@ const formatDuration = (miliseconds: number) => {
     return `${minutes}:${seconds.padStart(2, '0')}`;
 };
 
-const PopularSongsTable : React.FC<PopularSongsTableProps> = ({ tracks }) => {
+const PopularSongsTable : React.FC<PopularSongsTableProps> = ({ tracks, tableTitle}) => {
     return(
         <>
-            <h2>Popular songs</h2>
+            <h2>{tableTitle}</h2>
             <TableContainer>
                 <Table sx={{ minWidth: 450 }} aria-label="simple table">
                     <TableHead>
