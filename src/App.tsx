@@ -5,6 +5,7 @@ import Callback from './utils/SpotifyAuth/SpotifyAuth';
 import Dashboard from './pages/Dashboard/Dashboard';
 import { useState } from 'react';
 import { AuthContext } from './context/AuthContext';
+import SingleArtist from './pages/Artists/ArtistPage';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/callback' element={<Callback/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/artist/:id' element={<SingleArtist />}/>
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>
