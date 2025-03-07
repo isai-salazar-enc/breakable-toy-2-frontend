@@ -124,3 +124,22 @@ h1.artist-name {
 .search-item:hover {
   background-color: #b3b3b3;
 }
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  align-items: center;
+}
+
+.login-card {
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10%;
+  border-radius: 24px;
+}
+
+.btn-green {
+  padding: 12px;
+}

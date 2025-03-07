@@ -17,11 +17,13 @@ const Home = () => {
     }, [accessToken, navigate]);
       
     return (
-        <div>
-            <h1>Welcome to My Spotify App</h1>
-            <a href={AUTH_URL}>
-                <button className="btn-green">Login with Spotify</button>
-            </a>
+        <div className="login-wrapper">
+            <div className="login-card">
+                <h1>Welcome !</h1>
+                <a href={AUTH_URL}>
+                    <button className="btn-green">Login with Spotify</button>
+                </a>
+            </div>
         </div>
     )
 };
