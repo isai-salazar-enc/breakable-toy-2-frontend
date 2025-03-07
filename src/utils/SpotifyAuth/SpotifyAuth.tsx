@@ -9,8 +9,6 @@ import { AUTH_ENDPOINT } from "../constants";
 const Callback = () => {
     const navigate = useNavigate();
     const { saveTokens } = useAuthContext();
-    // TODO: if authenticated, send directly to dashboard
-    // TODO: check that token is valid 
 
     // Get access token when redirected to this page
     useEffect( () => {

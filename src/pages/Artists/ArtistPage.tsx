@@ -9,6 +9,7 @@ import { Button, CircularProgress} from "@mui/material";
 import ArtistBox from "../../components/ArtistBox";
 import PopularSongsTable from "../../components/PopularSongsTable";
 import DiscographyBox from "../../components/DiscographyBox";
+import { useAuthContext } from "../../context/AuthContext";
 
 const SingleArtist : React.FC = () => {
     const { id } = useParams();
@@ -16,17 +17,16 @@ const SingleArtist : React.FC = () => {
     const [tracks, setTracks] = useState<Track[] | null>(null);
     const [albums, setAlbums] = useState<Album[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const { accessToken, refreshToken } = useAuthContext();
 
     // Get access token when redirected to this page
     const getArtistInfo = async () =>{
-        const token = window.localStorage.getItem("access_token");
-        const refreshToken = window.localStorage.getItem("refresh_token");
         const endPoint : string = SINGLE_ARTISTS_ENDPOINT + id;
 
         try {
             const response = await axios.get(endPoint,{
                 headers: {
-                    'Authorization' : `Bearer ${token}`,
+                    'Authorization' : `Bearer ${accessToken}`,
                     'Refresh-Token' : refreshToken,
                 },
             });

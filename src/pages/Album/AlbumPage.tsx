@@ -7,6 +7,7 @@ import { SINGLE_ALBUM_ENDPOINT } from "../../utils/constants";
 
 import { Box, Button, Chip, CircularProgress } from "@mui/material";
 import PopularSongsTable from "../../components/PopularSongsTable";
+import { useAuthContext } from "../../context/AuthContext";
 
 const AlbumPage : React.FC = () => {
     const { id } = useParams();
@@ -14,24 +15,26 @@ const AlbumPage : React.FC = () => {
     const [tracks, setTracks] = useState<Track[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const navigate = useNavigate();
+    const { accessToken, refreshToken } = useAuthContext();
+
+    useEffect( () => {
+        getArtistInfo();
+    }, []);
 
     // Get access token when redirected to this page
     const getArtistInfo = async () =>{
-        const token = window.localStorage.getItem("access_token");
-        const refreshToken = window.localStorage.getItem("refresh_token");
         const endPoint : string = SINGLE_ALBUM_ENDPOINT + id;
 
         try {
             const response = await axios.get(endPoint,{
                 headers: {
-                    'Authorization' : `Bearer ${token}`,
+                    'Authorization' : `Bearer ${accessToken}`,
                     'Refresh-Token' : refreshToken,
                 },
             });
             
             setAlbum(response.data);
             setTracks(response.data.tracks.items);
-            console.log(tracks);
             setIsLoading(false);
 
         } catch (error) {
@@ -40,13 +43,10 @@ const AlbumPage : React.FC = () => {
 
     }
 
-    useEffect( () => {
-        getArtistInfo();
-    }, []);
-
     return(
         <>
             <Button variant="contained" className="btn-back" sx={{marginBottom:"12px"}} onClick={() => { navigate(-1) }}>GO BACK</Button>
+            <br />
             { isLoading && <CircularProgress /> }
             { album &&
                 <Box display={"flex"} gap={"18px"} alignItems={"center"}>
