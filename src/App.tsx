@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import { useState } from 'react';
 import { AuthContext } from './context/AuthContext';
 import SingleArtist from './pages/Artists/ArtistPage';
+import AlbumPage from './pages/Album/AlbumPage';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route path='/callback' element={<Callback/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/artist/:id' element={<SingleArtist />}/>
+          <Route path='/album/:id' element={<AlbumPage />}/>
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>

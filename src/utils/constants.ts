@@ -7,3 +7,4 @@ export const AUTH_ENDPOINT = "http://localhost:8080/auth/spotify";
 
 export const TOP_ARTISTS_ENDPOINT = "http://localhost:8080/me/top/artists";
 export const SINGLE_ARTISTS_ENDPOINT = "http://localhost:8080/artists/";
+export const SINGLE_ALBUM_ENDPOINT = "http://localhost:8080/albums/"

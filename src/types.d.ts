@@ -15,9 +15,13 @@ export interface Artist{
 
 export interface Album {
     type : "album",
+    id : string,
     name : string,
     images : Image[],
     release_date : string,
+    total_tracks: number,
+    artists: Artist[],
+    tracks: Track[]
 }
 
 export interface Image {

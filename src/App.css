@@ -79,3 +79,14 @@ h1.artist-name {
   margin-bottom: 12px;
   background-color: gray;
 }
+
+.MuiBox-root p{
+  padding: 0%;
+  margin: 0;
+}
+
+.MuiBox-root h1{
+  padding: 0%;
+  margin: 0;
+  margin-bottom: 8px;
+}
