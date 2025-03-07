@@ -4,25 +4,25 @@ import { TOP_ARTISTS_ENDPOINT } from "../utils/constants";
 import ArtistCard from "./ContentCard";
 import { Artist } from "../types";
 import { Box, CircularProgress } from "@mui/material";
+import { useAuthContext } from "../context/AuthContext";
 
 
 
 const TopArtists : React.FC = () => {
     const [artists, setArtists] = useState<Artist[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const { accessToken, refreshToken } = useAuthContext();
 
     // Get access token when redirected to this page
     useEffect( () => {
 
         // Declare function
         const getTopArtists = async () =>{
-            const token = window.localStorage.getItem("access_token");
-            const refreshToken = window.localStorage.getItem("refresh_token");
 
             try {
                 const response = await axios.get(TOP_ARTISTS_ENDPOINT,{
                     headers: {
-                        'Authorization' : `Bearer ${token}`,
+                        'Authorization' : `Bearer ${accessToken}`,
                         'Refresh-Token' : refreshToken,
                     },
                 });

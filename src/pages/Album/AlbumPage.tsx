@@ -7,6 +7,7 @@ import { SINGLE_ALBUM_ENDPOINT } from "../../utils/constants";
 
 import { Box, Button, Chip, CircularProgress } from "@mui/material";
 import PopularSongsTable from "../../components/PopularSongsTable";
+import { useAuthContext } from "../../context/AuthContext";
 
 const AlbumPage : React.FC = () => {
     const { id } = useParams();
@@ -17,14 +18,13 @@ const AlbumPage : React.FC = () => {
 
     // Get access token when redirected to this page
     const getArtistInfo = async () =>{
-        const token = window.localStorage.getItem("access_token");
-        const refreshToken = window.localStorage.getItem("refresh_token");
+        const { accessToken, refreshToken } = useAuthContext();
         const endPoint : string = SINGLE_ALBUM_ENDPOINT + id;
 
         try {
             const response = await axios.get(endPoint,{
                 headers: {
-                    'Authorization' : `Bearer ${token}`,
+                    'Authorization' : `Bearer ${accessToken}`,
                     'Refresh-Token' : refreshToken,
                 },
             });
