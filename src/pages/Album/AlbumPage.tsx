@@ -15,7 +15,7 @@ const AlbumPage : React.FC = () => {
     const [tracks, setTracks] = useState<Track[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const navigate = useNavigate();
-    const { accessToken, refreshToken } = useAuthContext();
+    const { accessToken, refreshToken, saveTokens } = useAuthContext();
 
     useEffect( () => {
         getArtistInfo();
@@ -38,9 +38,12 @@ const AlbumPage : React.FC = () => {
             setIsLoading(false);
 
         } catch (error) {
-            console.error("Error getting fetching Single Artist: ", error);
+            if (axios.isAxiosError(error) && error.response?.data.status === 401){
+                saveTokens(undefined, undefined);
+                window.localStorage.clear();
+                navigate("/");
+            }
         }
-
     }
 
     return(

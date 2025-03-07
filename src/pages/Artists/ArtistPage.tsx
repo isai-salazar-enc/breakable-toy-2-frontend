@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 import { SINGLE_ARTISTS_ENDPOINT } from "../../utils/constants";
 import { Album, Artist, Track } from "../../types";
@@ -17,7 +17,8 @@ const SingleArtist : React.FC = () => {
     const [tracks, setTracks] = useState<Track[] | null>(null);
     const [albums, setAlbums] = useState<Album[] | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const { accessToken, refreshToken } = useAuthContext();
+    const { accessToken, refreshToken, saveTokens } = useAuthContext();
+    const navigate = useNavigate();
 
     // Get access token when redirected to this page
     const getArtistInfo = async () =>{
@@ -37,7 +38,11 @@ const SingleArtist : React.FC = () => {
             setIsLoading(false);
 
         } catch (error) {
-            console.error("Error getting fetching Single Artist: ", error);
+            if (axios.isAxiosError(error) && error.response?.data.status === 401){
+                saveTokens(undefined, undefined);
+                window.localStorage.clear();
+                navigate("/");
+            }
         }
 
     }
