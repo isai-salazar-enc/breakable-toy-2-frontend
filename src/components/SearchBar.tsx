@@ -5,12 +5,14 @@ import { useAuthContext } from "../context/AuthContext";
 import { SEARCH_ENDPOINT } from "../utils/constants";
 import { Album, Artist } from "../types";
 import SearchItem from "./SearchItem";
+import { useNavigate } from "react-router";
 
 const SearchBar: React.FC = ({ }) => {
     const [query, setQuery] = useState("");
     const [albums, setAlbums] = useState<Album[] | null>(null);
     const [artists, setArtists] = useState<Artist[] | null>(null);
-    const { accessToken, refreshToken } = useAuthContext();
+    const { accessToken, refreshToken, saveTokens } = useAuthContext();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!query) {
@@ -22,7 +24,6 @@ const SearchBar: React.FC = ({ }) => {
 
        // Execute fetch query if user has not typed for 500ms
         const delayDebounceFn = setTimeout( async() => {
-            console.log("Buscando en API:", query);
             try {
                 const response = await axios.get(SEARCH_ENDPOINT, {
                     headers: {
@@ -36,7 +37,11 @@ const SearchBar: React.FC = ({ }) => {
                 setAlbums(response.data.albums.items);
                 setArtists(response.data.artists.items);
             } catch (error) {
-                console.error("Error while fetching:", error);
+                if (axios.isAxiosError(error) && error.response?.data.status === 401){
+                    saveTokens(undefined, undefined);
+                    window.localStorage.clear();
+                    navigate("/");
+                }
             }
         }, 650);
 
