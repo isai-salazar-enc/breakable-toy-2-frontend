@@ -18,8 +18,8 @@ const Home = () => {
       
     return (
         <div className="login-wrapper">
-            <div>
-                <h1>Welcome!</h1>
+            <div className="login-card">
+                <h1>Welcome !</h1>
                 <a href={AUTH_URL}>
                     <button className="btn-green">Login with Spotify</button>
                 </a>
