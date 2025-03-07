@@ -15,7 +15,6 @@ const TopArtists : React.FC = () => {
 
     // Get access token when redirected to this page
     useEffect( () => {
-
         // Declare function
         const getTopArtists = async () =>{
 
@@ -29,7 +28,6 @@ const TopArtists : React.FC = () => {
                 
                 setArtists(response.data.items);
                 setIsLoading(false);
-                console.log(response.data.items);
 
             } catch (error) {
                 console.error("Error getting fetching TopArtists: ", error);
