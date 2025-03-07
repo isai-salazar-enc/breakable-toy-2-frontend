@@ -1,4 +1,6 @@
 #root {
+  --spotify-green: #1db954;
+  --spotify-hover: #1aa64b;
   max-width: 1380px;
   min-width: 70%;
   margin: 0 auto;
@@ -12,15 +14,15 @@
 }
 
 .MuiBox-root.cards-container-wrapper {
-  border: 1px solid black;
+  border: 1px solid;
   padding-bottom: 28px;
 }
 
 .MuiBox-root h2{
   margin: 0;
-  padding: 12px 0;
+  padding: 12px;
   margin-bottom: 24px;
-  background-color: green;
+  background-color: var(--spotify-green);
 }
 
 .MuiCard-root {
@@ -89,4 +91,36 @@ h1.artist-name {
   padding: 0%;
   margin: 0;
   margin-bottom: 8px;
+}
+
+.search-wrapper {
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 24px;
+  width: 80% !important;
+}
+
+.search-input, .search-input .MuiBox-root, .search-input div  {
+  border-radius: 0px !important;
+}
+
+.search-items-wrapper {
+  position: absolute;
+  width: 100%;
+  background-color: #eee;
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  padding: 8px;
+  color: black;
+  font-weight: bold;
+}
+
+.search-item:hover {
+  background-color: #b3b3b3;
 }

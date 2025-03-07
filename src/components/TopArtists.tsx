@@ -47,7 +47,7 @@ const TopArtists : React.FC = () => {
 
             {artists &&
                 <Box className="cards-container-wrapper">
-                    <h2>MyTopArtists</h2>
+                    <h2>My Top Artists</h2>
                     <Box className="artist-cards-container">
                         {artists && artists.map((artist) => (
                             <a key={artist.id} href={"/artist/" + artist.id}>

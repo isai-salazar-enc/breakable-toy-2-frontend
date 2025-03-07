@@ -1,11 +1,12 @@
 // TODO: Create and add components
 
+import SearchBar from "../../components/SearchBar";
 import TopArtists from "../../components/TopArtists";
 
 const Dashboard = () => {
     return(
         <>
-            <h2>Dashboard</h2>
+            <SearchBar />
             <TopArtists />
         </>
     )
